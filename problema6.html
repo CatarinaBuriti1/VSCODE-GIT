@@ -1,0 +1,39 @@
+<!DOCTYPE html> 
+<html>
+    
+    <head>
+        <title>LJS</title>
+        <meta charset = "UTF-8">
+    
+    </head>
+
+
+    <body>
+        <h1>Lógica de Programação em Javascript</h1>
+
+        <script>
+
+            var n1 = prompt ("Digite o primeiro número: "); 
+            n1 = parseInt(n1); // converte string para Int
+
+            var n2 = prompt ("Digite um outro número: "); 
+            n2 = parseInt(n2); // converte string para Int
+
+        
+            if (n1 | n2 === 0) {
+                alert("Reprovado");    
+            } else {
+                var nSorteado = parseInt(Math.random() * 2); 
+
+                if (nSorteado > 0) {
+                    alert("Aprovado");
+                }
+            }
+
+        </script>
+    </body>
+</html>
+
+            
+
+        
