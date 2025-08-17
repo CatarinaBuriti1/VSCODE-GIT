@@ -10,28 +10,12 @@
     <body> 
        
            
-        <button onclick="lampada()">
-            Ligar Luz
-        </button>    
+        <button onclick="document.getElementById('minha_imagem').src='pic_bulbon.gif'">Ligar Luz</button>
+        
+        <img id="minha_imagem" src="download_jpeg" style="width:100px"
 
-        <button onclick="lampada()">
-            Desligar Luz
-        </button>    
+        <button onclick="getElementById('minha_imagem').src='pic_bulboff.gif'">Desligar Luz</button>    
 
-        
-        <script>
-        
-        function lampada(){
-        var imagem = document.getElementById("nome_id").value;
-        var img = document.createElement("img");
-        
-        img.src="Bolsa Futuro Digital/pic_bulboff.gif";
-        img.alt="Lâmpada Desligada";
-
-        alert(Ligar);
-        }
-        
-        </script>
 
         
     </body>
