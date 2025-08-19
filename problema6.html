@@ -14,22 +14,26 @@
         <script>
 
             var n1 = prompt ("Digite o primeiro número: "); 
-            n1 = parseInt(n1); // converte string para Int
+            n1 = parseFloat(n1); // converte string para Float
 
             var n2 = prompt ("Digite um outro número: "); 
-            n2 = parseInt(n2); // converte string para Int
+            n2 = parseFloat(n2); // converte string para Float
+
+            var media = (n1 + n2) /2; 
 
         
-            if (n1 | n2 === 0) {
-                alert("Reprovado");    
+            if (n1 === 0 || n2 === 0 || media < 5){
+                alert("Desculpe, não foi dessa vez");    
             } else {
-                var nSorteado = parseInt(Math.random() * 2); 
-
-                if (nSorteado > 0) {
-                    alert("Aprovado");
-                }
+                alert("Parabéns! Você foi aprovado!");
             }
 
+        // if(media >= 5 && n1 > 0 && n2 > 0){
+        //     alert("Parabéns! Você foi aprovado");
+        // } else {
+        //     alert("Descupe, mas não foi dessa vez");
+        // }
+        
         </script>
     </body>
 </html>

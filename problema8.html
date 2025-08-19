@@ -8,14 +8,34 @@
     </head>
 
     <body> 
-       
-           
-        <button onclick="document.getElementById('minha_imagem').src='pic_bulbon.gif'">Ligar Luz</button>
         
-        <img id="minha_imagem" src="download_jpeg" style="width:100px"
+        <input type="text" placeholder="Digite seu texto aqui" id="textoUsuario">
+        <button onclick="imprime()">Mensagem do Dia</button>
 
-        <button onclick="getElementById('minha_imagem').src='pic_bulboff.gif'">Desligar Luz</button>    
+        <input type="text" placeholder="Digite outro texto aqui, buscando pelo id" id="outro">
+        <button onclick="imprime2()">Mensagem do Dia</button>
 
+        <input type="text" placeholder="Digite seu texto aqui com getElementById" id="textoUsuario3">"
+        <button onclick="imprime3()">Mensagem do Dia</button>
+        
+        <script>
+            function imprime(){
+               var texto = document.querySelector('#textoUsuario').value;
+               alert(texto);
+            }
+
+            function imprime2(){
+                alert(`${outro.value}`);
+            }
+
+            function imprime3(){
+                var texto = document.getElementById("textoUsuario3").value;
+                alert(texto);
+
+            }
+        
+        
+        </script>
 
         
     </body>

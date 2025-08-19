@@ -9,24 +9,12 @@
 
     <body> 
        
-        <form>
-            <input type="text" placeholder="Digite o seu texto aqui"> 
-        </form>
+        <button onclick="document.getElementById('minha_imagem').src='pic_bulbon.gif'">Ligar Luz</button>
         
-        <button onclick="saudacao()">
-            Mensagem do dia
-        </button>    
+        <img id="minha_imagem" src="download_jpeg" style="width:100px"
+        
+        <button onclick="document.getElementById('minha_imagem').src='pic_bulboff.gif'">Desligar Luz</button>    
 
-        
-        <script>
-
-        function imprime3(){
-        var texto = document.getElementById("textousuario").value;
-        alert(texto);
-        }
-        
-        </script>
-
-        
     </body>
+
 </html>
