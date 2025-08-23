@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html> 
+    
+    <head>
+        <meta charset = "UTF-8">
+        <title> Lógica de Programação com JavaScript</title>
+
+    </head>
+
+    <body> 
+        <h1>Cadastro de Pessoa</h1>
+        
+        <input type="text" id="nome"  placeholder="Nome">
+        <input type="text" id="email" placeholder="E-mail"><br><br>
+        <button onclick="adicionar_usuario()">Adicionar Usuário</button>
+        <ul id="lista_usuario"></ul>
+
+        <script>
+
+            let usuarios = [];
+                  
+            function adicionar_usuario(){
+                var [nome, email] = pegarinformacoes();
+                var novo_usuario = {nome, email};
+                usuarios.push(novo_usuario);
+                add_usuario_lista (novo_usuario);
+
+            } 
+
+            function pegarinformacoes(){
+                var nome = document.getElementById("nome").value;
+                var email = document.getElementById("email").value; 
+                return [nome, email];
+
+            }
+
+            function add_usuario_lista(novo_usuario){
+                var elemento = document.createElement("li");
+                elemento.textContent = novo_usuario.nome + " - " + novo_usuario.email;
+                document.getElementById("lista_usuario").appendChild(elemento);
+            }
+
+                    
+
+
+
+
+
+
+
+        </script>
+
+    </body>
+
+
+
+</html>
