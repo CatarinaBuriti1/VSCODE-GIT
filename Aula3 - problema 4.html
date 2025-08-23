@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html> 
+    
+    <head>
+        <meta charset = "UTF-8">
+        <title> Lógica de Programação com JavaScript</title>
+    </head>
+
+    <body> 
+        <h1>Lista de frutas</h1>
+       
+        <input type="text" placeholder="Digite uma fruta" id="nome_fruta">
+        <Button onclick="adicionar()">Adicionar</Button>
+        <Button onclick="Contarfruta()">Contar Frutas</Button>
+        <p id="retorno_usuario"></p>
+
+    
+
+    <script>
+        let frutas = [];
+        function adicionar(){
+            if(document.getElementById("nome_fruta").value !== ""){; 
+                var nome_fruta = document.getElementById("nome_fruta").value;
+                document.getElementById("nome_fruta").value = "";
+                frutas.push(nome_fruta); 
+                document.getElementById("retorno_usuario").innerHTML = nome_fruta + " adicionada à lista de frutas!";
+            
+            } else {
+            document.getElementById("retorno_usuario").innerHTML = "Você precisa digitar uma fruta";
+            }
+        }
+        
+        function Contarfruta(){
+            var nome_frutas = "";
+            frutas.forEach(imprimir); 
+            
+            function imprimir(value){
+                nome_frutas += "<li>" +value+ "</li>";
+            }
+            
+            document.getElementById("retorno_usuario").innerHTML = "A lista possui " + frutas.length + " frutas:" + nome_frutas;
+            frutas.length + texto_lista;
+             
+        }    
+
+        </script>
+    </body>
+
+</html>

@@ -3,7 +3,7 @@
     
     <head>
         <meta charset = "UTF-8">
-        <title> Lógica de Programação com JavaScript</title>
+        <title>Exemplo com Loop e Condições</title>
 
     </head>
 
@@ -22,19 +22,23 @@
             if(numero <= 0){
                 alert("Por favor, digite um número maior que zero.");
             } else { 
-                for(var i = 1; i <= num; i++) {
+                for(var i = 1; i <= num; i++){
                     if (i % 2 == 0){
                         pares += i + " ";
                         //pares = pares + i + ", "
                     }
                 }
-            }            
+
+                if(pares == ""){
+                    alert ("Não existem números pares até " + num);
+                } else {
+                    alert("Números pares até " + num + ": " + pares); 
+
+                }
 
             }
+            }            
         
-            </script>
-
-      
+            </script>   
        </body>
-
 </html>
