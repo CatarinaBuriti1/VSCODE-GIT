@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html> 
+    
+    <head>
+        <meta charset = "UTF-8">
+        <title>Atividade de Avaliação do Curso Front-End</title>
+
+         <style>
+        * {
+            background-color: rgb(251, 251, 251);
+            font-family: serif;
+        }
+
+         button {
+            background-color: rgb(126, 169, 141);
+            width: 150px; /* Define a largura do botão */
+            height: 50px;  /* Define a altura do botão */
+            padding: 10px 20px; /* Adiciona um preenchimento interno */
+            font-size: 16px;   /* Define o tamanho da fonte */
+            font-weight: bold;
+            border-width: 1px;
+        }
+
+
+
+        input {
+            background-color: rgb(251, 251, 251);
+            width: 300px; /* Define a largura do botão */
+            height: 30px;  /* Define a altura do botão */
+            padding: 10px 20px; /* Adiciona um preenchimento interno */
+            font-size: 16px;   /* Define o tamanho da fonte */
+            border-width: 1px;
+        }
+        
+        </style>
+
+    </head>
+
+    <body> 
+        <h1>Cadastro de alunos do Curso Front-End</h1>
+
+        <input type="text" placeholder="Digite seu nome" id="nome"><br><br>
+        <input type="text" placeholder="Digite seu e-mail" id="email"><br><br>
+        <input type="tel" placeholder="Digite seu telefone (XX) XXXXX-XXXX" id="telefone"><br><br>
+
+        <button onclick="adicionar()">Adicionar</button>
+        <button onclick="recuperar()">Recuperar</button>
+        <button onclick="atualizar()">Atualizar</button>
+        <button onclick="apagar()">Apagar</button>
+
+        <button onclick="contar()">Contar alunos</button>
+        <p id="info"></p>
+        <ul id="lista_frutas"></ul>
+
+
+    <script>
+        var alunos = [];  
+        function adicionar() {
+            var nome = document.getElementById("nome").value; 
+            var email = document.getElementById("email").value;
+            var telefone = document.getElementById("telefone").value;
+
+            if (!nome || !origem) return alert("Preencha todos os campos!");
+
+
+            var fruta = { nome, origem };
+            frutas.push(fruta);
+            document.getElementById("nome_fruta").value = "";
+            document.getElementById("origem_fruta").value = "";
+            document.getElementById("info").innerHTML = "A fruta " + nome + " foi adicionada";
+        }
+
+        function contar() {
+            var lista = document.getElementById("lista_frutas");
+            lista.innerHTML=""; //limpa a lista antes de recriar
+            
+            // este link explica com como usar o INDEX do forEach
+            // https://www.freecodecamp.org/portuguese/news/foreach-em-javascript-como-percorrer-um-array-em-js/
+
+            frutas.forEach(function (fruta, index) {
+                // para cada fruta, eu vou criar um item que vai para a lista
+                var item = document.createElement("li");
+                // cada item da lista recebe o nome da fruta e o lugar de origem
+                item.textContent = fruta.nome + " (origem: " + fruta.origem + ")";
+                // coloco cada item da lista como um ponteiro a ser selecionado
+                item.style.cursor = "pointer";
+                //para cada item, existirá uma possibilidade de onclick
+                item.onclick = function() {
+                // coleto o indice daquela fruta/elemento especifico
+                indiceSelecionado = index;
+                document.getElementById("info").innerHTML = 
+                    "Fruta selecionada: <b>" + fruta.nome + "</b> ("+ fruta.origem +")";
+            };
+
+                // coloco todas as informações na lista
+                lista.append(item); 
+            
+            });
+
+            document.getElementById("info").innerHTML = 
+                "O total de frutas na lista é: " + frutas.length;
+
+        }
+            
+
+        </script>
+    </body>
+
+</html>
