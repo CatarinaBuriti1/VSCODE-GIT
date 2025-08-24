@@ -47,49 +47,77 @@
         <button onclick="recuperar()">Recuperar</button>
         <button onclick="atualizar()">Atualizar</button>
         <button onclick="apagar()">Apagar</button>
-
-        <button onclick="contar()">Contar alunos</button>
+        <button onclick="contar()">Lista de alunos</button>
         <p id="info"></p>
-        <ul id="lista_frutas"></ul>
+        <ul id="lista_alunos"></ul>
 
 
     <script>
-        var alunos = [];  
+        let alunos = [];  
         function adicionar() {
-            var nome = document.getElementById("nome").value; 
-            var email = document.getElementById("email").value;
-            var telefone = document.getElementById("telefone").value;
+            let nome = document.getElementById("nome").value; 
+            let email = document.getElementById("email").value;
+            let telefone = document.getElementById("telefone").value;
 
-            if (!nome || !origem) return alert("Preencha todos os campos!");
+            if (!nome || !email || !telefone) return alert("Preencha todos os campos!");
 
 
-            var fruta = { nome, origem };
-            frutas.push(fruta);
-            document.getElementById("nome_fruta").value = "";
-            document.getElementById("origem_fruta").value = "";
-            document.getElementById("info").innerHTML = "A fruta " + nome + " foi adicionada";
-        }
+            let aluno = { nome, email, telefone };
+            alunos.push(aluno);
+            document.getElementById("nome").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("telefone").value = "";
+            document.getElementById("info").innerHTML = "O aluno " + nome + " foi adicionado.";
+
+           
+            
+        };
+                 
+    
+        //Função para mostrar os dados
+        
+       function recuperar() {            
+            let ul = document.getElementById("lista_alunos");
+            let html = "";
+            alunos.forEach(elemento => {                  
+                console.log(elemento);
+                html += `<li>${elemento}</li>`;                                       
+            });
+
+            ul.innerHTML = html; 
+
+        };
+
+        
+       
+        
+       
+        
+        
+        
+        
+
 
         function contar() {
-            var lista = document.getElementById("lista_frutas");
+            var lista = document.getElementById("lista_alunos");
             lista.innerHTML=""; //limpa a lista antes de recriar
             
             // este link explica com como usar o INDEX do forEach
             // https://www.freecodecamp.org/portuguese/news/foreach-em-javascript-como-percorrer-um-array-em-js/
 
-            frutas.forEach(function (fruta, index) {
-                // para cada fruta, eu vou criar um item que vai para a lista
+            alunos.forEach(function (aluno, index) {
+                // para cada aluno, eu vou criar um item que vai para a lista
                 var item = document.createElement("li");
-                // cada item da lista recebe o nome da fruta e o lugar de origem
-                item.textContent = fruta.nome + " (origem: " + fruta.origem + ")";
+                // cada item da lista recebe o nome do aluno, telefone e email
+                item.textContent = aluno.nome + " (E-mail: " + aluno.email + " e " + aluno.telefone +")";
                 // coloco cada item da lista como um ponteiro a ser selecionado
                 item.style.cursor = "pointer";
                 //para cada item, existirá uma possibilidade de onclick
                 item.onclick = function() {
-                // coleto o indice daquela fruta/elemento especifico
+                // coleto o indice daquele aluno/elemento especifico
                 indiceSelecionado = index;
                 document.getElementById("info").innerHTML = 
-                    "Fruta selecionada: <b>" + fruta.nome + "</b> ("+ fruta.origem +")";
+                    "O aluno selecionado é: <b>" + aluno.nome + "</b> (" + aluno.email + " "+ aluno.telefone +")";
             };
 
                 // coloco todas as informações na lista
@@ -98,10 +126,11 @@
             });
 
             document.getElementById("info").innerHTML = 
-                "O total de frutas na lista é: " + frutas.length;
+                "O total de alunos na lista é: " + alunos.length;
 
         }
-            
+        
+        
 
         </script>
     </body>
