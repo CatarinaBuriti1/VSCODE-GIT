@@ -46,24 +46,34 @@
         <button onclick="adicionar()">Adicionar</button>
         <button onclick="recuperar()">Recuperar</button>
         <button onclick="atualizar()">Atualizar</button>
-        <button onclick="apagar()">Apagar</button>
+        <button onclick="deletar()">Deletar</button>
         <button onclick="contar()">Lista de alunos</button>
         <p id="info"></p>
+        <div id="editar"></div>
         <ul id="lista_alunos"></ul>
 
 
     <script>
-        let alunos = [];  
+        let alunos = []; 
+        let index = 0;
+
         function adicionar() {
             let nome = document.getElementById("nome").value; 
             let email = document.getElementById("email").value;
             let telefone = document.getElementById("telefone").value;
 
+
             if (!nome || !email || !telefone) return alert("Preencha todos os campos!");
 
 
-            let aluno = { nome, email, telefone };
+           //let aluno = { nome, email, telefone };      
+            let aluno = {
+                id: index,
+                texto: nome, email, telefone 
+            }                               
+            index++;                
             alunos.push(aluno);
+            //console.log(alunos);
             document.getElementById("nome").value = "";
             document.getElementById("email").value = "";
             document.getElementById("telefone").value = "";
@@ -75,22 +85,49 @@
                  
     
         //Função para mostrar os dados
-        
+
+    
        function recuperar() {            
             let ul = document.getElementById("lista_alunos");
             let html = "";
             alunos.forEach(elemento => {                  
               console.log(elemento);
-               html += `<li>${elemento}</li>`;                                       
+               html += `<li>${elemento.texto} <button onclick="atualizar(${elemento.id})">Atualizar</button></li>
+               <button onclick="deletar(${elemento.id})">Deletar</button></li>`;
+                                                     
         });
 
          ul.innerHTML = html; 
       };
 
-      function atualizar(){
-        
-      }
 
+        //Função para editar os dados
+
+   
+
+      function atualizar(id) {
+        let resultado = alunos.find(obj => obj.id === id );
+        let html = `<input type="text" id="textoParaEditar">
+                    <button onclick="editarDados(${id})">Editar</button>`;
+        let diveditar = document.getElementById('editar');
+        diveditar.innerHTML = html;
+    }
+
+        function editarDados(id) {
+            let textoParaEditar = document.getElementById("textoParaEditar").value;
+            let resultado = alunos.find(obj => obj.id === id );
+            resultado.texto = textoParaEditar;
+            recuperar();
+            let diveditar = document.getElementById('editar');
+            diveditar.innerHTML = "";
+
+     }
+
+     function deletar(id){
+        let novalista = alunos.filter(obj => obj.id !== id);
+        alunos = novalista;
+        recuperar()
+     }
        
         
             
