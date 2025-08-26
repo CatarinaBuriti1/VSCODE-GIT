@@ -90,12 +90,13 @@
             alunos.forEach(elemento => {                  
               console.log(elemento);
                html += `<li>${elemento.texto} <div class="container"><button onclick="atualizar(${elemento.id})">Editar</button></li>
-               <button onclick="deletar(${elemento.id})">Deletar</button></li></div>`;
+               <button onclick="deletar(${elemento.id})">Deletar</button><br></br></li></div>`;
                                                      
         });
 
-         ul.innerHTML = html; 
-      };
+         ul.innerHTML = html;
+
+        };
 
 
         //Função para editar os dados
@@ -107,7 +108,7 @@
                     <button onclick="editarDados(${id})">Editar</button>`;
         let diveditar = document.getElementById('editar');
         diveditar.innerHTML = html;
-    }
+        };
 
         function editarDados(id) {
             let textoParaEditar = document.getElementById("textoParaEditar").value;
@@ -117,15 +118,15 @@
             let diveditar = document.getElementById('editar');
             diveditar.innerHTML = "";
 
-     }
+        };
 
      function deletar(id){
         let novalista = alunos.filter(obj => obj.id !== id);
         alunos = novalista;
         recuperar()
-     } 
+        };
         
-            
+        //Função para contar os alunos
 
         function contar() {
             var lista = document.getElementById("lista_alunos");
@@ -154,7 +155,7 @@
             document.getElementById("info").innerHTML = 
                 "O total de alunos na lista é: " + alunos.length;
 
-        }      
+         };      
         
 
         </script>
