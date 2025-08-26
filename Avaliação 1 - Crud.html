@@ -102,12 +102,12 @@
         //Função para editar os dados
 
 
-      function atualizar(id) {
-        let resultado = alunos.find(obj => obj.id === id );
-        let html = `<input type="text" id="textoParaEditar">
+        function atualizar(id) {
+            let resultado = alunos.find(obj => obj.id === id );
+            let html = `<input type="text" id="textoParaEditar">
                     <button onclick="editarDados(${id})">Editar</button>`;
-        let diveditar = document.getElementById('editar');
-        diveditar.innerHTML = html;
+            let diveditar = document.getElementById('editar');
+            diveditar.innerHTML = html;
         };
 
         function editarDados(id) {
@@ -117,14 +117,13 @@
             recuperar();
             let diveditar = document.getElementById('editar');
             diveditar.innerHTML = "";
-
         };
 
-     function deletar(id){
-        let novalista = alunos.filter(obj => obj.id !== id);
-        alunos = novalista;
-        recuperar()
-        };
+        function deletar(id){
+            let novalista = alunos.filter(obj => obj.id !== id);
+            alunos = novalista;
+            recuperar()
+            };
         
         //Função para contar os alunos
 
