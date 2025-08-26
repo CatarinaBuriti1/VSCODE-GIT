@@ -21,8 +21,6 @@
             border-width: 1px;
         }
 
-
-
         input {
             background-color: rgb(251, 251, 251);
             width: 300px; /* Define a largura do botão */
@@ -66,10 +64,10 @@
             if (!nome || !email || !telefone) return alert("Preencha todos os campos!");
 
             
-            let aluno = {
-                id: index,
-                texto: nome, email, telefone 
-            }                               
+        let aluno = {
+            id: index,
+            texto: nome, email, telefone 
+        }                               
             index++;                
             alunos.push(aluno);
             document.getElementById("nome").value = "";
@@ -81,7 +79,7 @@
             
         };
                  
-    
+        
         //Função para mostrar os dados
    
         function recuperar() {            
@@ -90,22 +88,19 @@
             alunos.forEach(elemento => {                  
               console.log(elemento);
                html += `<li>${elemento.texto} <div class="container"><button onclick="atualizar(${elemento.id})">Editar</button></li>
-               <button onclick="deletar(${elemento.id})">Deletar</button><br></br></li></div>`;
-                                                     
+               <button onclick="deletar(${elemento.id})">Deletar</button><br></br></li></div>`;                                              
         });
 
          ul.innerHTML = html;
-
+         
         };
 
-
         //Função para editar os dados
-
 
         function atualizar(id) {
             let resultado = alunos.find(obj => obj.id === id );
             let html = `<input type="text" id="textoParaEditar">
-                    <button onclick="editarDados(${id})">Editar</button>`;
+                        <button onclick="editarDados(${id})">Editar</button>`;
             let diveditar = document.getElementById('editar');
             diveditar.innerHTML = html;
         };
@@ -123,7 +118,7 @@
             let novalista = alunos.filter(obj => obj.id !== id);
             alunos = novalista;
             recuperar()
-            };
+        };
         
         //Função para contar os alunos
 
@@ -154,9 +149,9 @@
             document.getElementById("info").innerHTML = 
                 "O total de alunos na lista é: " + alunos.length;
 
-         };      
-        
+         };   
 
+        
         </script>
     </body>
 
