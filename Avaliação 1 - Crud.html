@@ -44,25 +44,33 @@
         <input type="tel" placeholder="Digite seu telefone (XX) XXXXX-XXXX" id="telefone"><br><br>
 
         <button onclick="adicionar()">Adicionar</button>
-        <button onclick="recuperar()">Recuperar</button>
-        <button onclick="atualizar()">Atualizar</button>
-        <button onclick="apagar()">Apagar</button>
+        <button onclick="recuperar()">Recuperar</button>    
         <button onclick="contar()">Lista de alunos</button>
         <p id="info"></p>
-        <ul id="lista_alunos"></ul>
+        <div id="editar"></div>
+        <div>
+            <ul id="lista_alunos"></ul>        
+        </div>
 
 
     <script>
-        let alunos = [];  
+        let alunos = []; 
+        let index = 0;
+
         function adicionar() {
             let nome = document.getElementById("nome").value; 
             let email = document.getElementById("email").value;
             let telefone = document.getElementById("telefone").value;
 
+
             if (!nome || !email || !telefone) return alert("Preencha todos os campos!");
 
-
-            let aluno = { nome, email, telefone };
+            
+            let aluno = {
+                id: index,
+                texto: nome, email, telefone 
+            }                               
+            index++;                
             alunos.push(aluno);
             document.getElementById("nome").value = "";
             document.getElementById("email").value = "";
@@ -75,47 +83,59 @@
                  
     
         //Função para mostrar os dados
-        
-       function recuperar() {            
+   
+        function recuperar() {            
             let ul = document.getElementById("lista_alunos");
             let html = "";
             alunos.forEach(elemento => {                  
               console.log(elemento);
-               html += `<li>${elemento}</li>`;                                       
+               html += `<li>${elemento.texto} <div class="container"><button onclick="atualizar(${elemento.id})">Editar</button></li>
+               <button onclick="deletar(${elemento.id})">Deletar</button></li></div>`;
+                                                     
         });
 
          ul.innerHTML = html; 
       };
 
-      function atualizar(){
-        
-      }
 
-       
+        //Função para editar os dados
+
+
+      function atualizar(id) {
+        let resultado = alunos.find(obj => obj.id === id );
+        let html = `<input type="text" id="textoParaEditar">
+                    <button onclick="editarDados(${id})">Editar</button>`;
+        let diveditar = document.getElementById('editar');
+        diveditar.innerHTML = html;
+    }
+
+        function editarDados(id) {
+            let textoParaEditar = document.getElementById("textoParaEditar").value;
+            let resultado = alunos.find(obj => obj.id === id );
+            resultado.texto = textoParaEditar;
+            recuperar();
+            let diveditar = document.getElementById('editar');
+            diveditar.innerHTML = "";
+
+     }
+
+     function deletar(id){
+        let novalista = alunos.filter(obj => obj.id !== id);
+        alunos = novalista;
+        recuperar()
+     } 
         
             
-
-                    
-        
-       
-        
-        
-        
-        
-
 
         function contar() {
             var lista = document.getElementById("lista_alunos");
             lista.innerHTML=""; //limpa a lista antes de recriar
             
-            // este link explica com como usar o INDEX do forEach
-            // https://www.freecodecamp.org/portuguese/news/foreach-em-javascript-como-percorrer-um-array-em-js/
-
-            alunos.forEach(function (aluno, index) {
+                alunos.forEach(function (aluno, index) {
                 // para cada aluno, eu vou criar um item que vai para a lista
                 var item = document.createElement("li");
                 // cada item da lista recebe o nome do aluno, telefone e email
-                item.textContent = aluno.nome + " (E-mail: " + aluno.email + " e " + aluno.telefone +")";
+                item.textContent = "Nome: " + aluno.texto + " (E-mail: " + aluno.email + " e " + aluno.telefone +")";
                 // coloco cada item da lista como um ponteiro a ser selecionado
                 item.style.cursor = "pointer";
                 //para cada item, existirá uma possibilidade de onclick
@@ -134,8 +154,7 @@
             document.getElementById("info").innerHTML = 
                 "O total de alunos na lista é: " + alunos.length;
 
-        }
-        
+        }      
         
 
         </script>
