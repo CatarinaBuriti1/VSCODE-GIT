@@ -45,7 +45,7 @@
 
         <button onclick="adicionar()">Adicionar</button>
         <button onclick="recuperar()">Recuperar</button>
-        <button onclick="atualizar()">Atualizar</button>
+        <button onclick="atualizar()">Editar</button>
         <button onclick="deletar()">Deletar</button>
         <button onclick="contar()">Lista de alunos</button>
         <p id="info"></p>
@@ -86,14 +86,14 @@
     
         //Função para mostrar os dados
 
-    
-       function recuperar() {            
+   
+        function recuperar() {            
             let ul = document.getElementById("lista_alunos");
             let html = "";
             alunos.forEach(elemento => {                  
               console.log(elemento);
-               html += `<li>${elemento.texto} <button onclick="atualizar(${elemento.id})">Atualizar</button></li>
-               <button onclick="deletar(${elemento.id})">Deletar</button></li>`;
+               html += `<li>${elemento.texto} <div class="container"><button onclick="atualizar(${elemento.id})">Editar</button></li>
+               <button onclick="deletar(${elemento.id})">Deletar</button></li></div>`;
                                                      
         });
 
@@ -103,7 +103,6 @@
 
         //Função para editar os dados
 
-   
 
       function atualizar(id) {
         let resultado = alunos.find(obj => obj.id === id );
