@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html> 
+    
+    <head>
+        <meta charset = "UTF-8">
+        <title> Lógica de Programação com JavaScript</title> 
+
+    </head>
+
+    <body> 
+        <h1>Manipulação de Strings</h1>
+        <p>Atividade</p>
+
+
+    </body>
+    <h1>Atividade</h1>
+
+        <input type="text" placeholder="Palavra 1" id="palavra1">
+        <input type="text" placeholder="Palavra 2" id="palavra2">
+        <button onclick="console.log()">Analisar palavras</button>
+        
+    <script>
+
+        let palavra1 = document.getElementById("palavra1").value;
+        let length = palavra1.length;        
+        console.log(palavra1.length);
+
+        let text1 = document.getElementById("palavra1").value;
+        let text2 = document.getElementById("palavra2").value;       
+        let text3 = text1.concat(" ", text2);
+        console.log(text3);
+
+        const name = document.getElementById("palavra1").value;
+        let letter = name.at(2); 
+        console.log(letter);
+
+        let letras = document.getElementById("palavra2").value; 
+        document.getElementById("textoUsuario") = innnerHTML;
+        let parte = letras.slice(7, 13); 
+        console.log(parte);
+
+        let conta = document.getElementById("palavra1").value;
+        let part = conta.slice(7);
+        console.log(part);
+
+        let contando = "";
+        document.getElementById("textoUsuario") = innnerHTML;
+        let partindo = contando.slice(-12);
+        console.log(partindo);
+        
+        let maiuscula = "";
+        document.getElementById("textoUsuario") = innnerHTML;
+        let maiuscula2 = maiuscula.toUpperCase(); 
+        console.log(maiuscula2);
+
+        let minuscula = "";
+        document.getElementById("textoUsuario") = innnerHTML;
+        let minuscula1 = minuscula.toLowerCase();
+        console.log(minuscula1);
+
+        let alterar = ""
+        let newAlterar = alterar.replace("", "Bolsa Futuro Digital"); 
+        console.log(newAlterar);
+
+        let separa = ""; 
+        const myArray = separa.split(" ");
+        document.getElementById("demo") = innerHTML;
+
+        let localizar = "";
+        let index = localizar.indexOf("textoUsuario");
+        console.log(index);
+
+        let incluir = ""; 
+        incluir.includes("textoUsuario");
+        console.log(incluir);
+
+
+
+
+    </script>
+
+
+
+</html>

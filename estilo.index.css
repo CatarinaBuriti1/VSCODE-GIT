@@ -1,0 +1,77 @@
+
+
+
+
+a:link{
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited{
+    color:red;
+    background-color: transparent;
+    text-decoration:none;
+}
+
+a:hover{
+    color: black;
+    background-color: greenyellow;
+    text-decoration: underline;
+}
+
+a:active{
+    color: blue;
+    background: transparent;
+    text-decoration:underline;
+
+}
+
+
+body {
+    color: rgb(1, 1, 13); 
+}
+
+h1 {
+
+
+}
+
+p {
+
+
+}
+
+a {
+
+    text-decoration: nome; 
+}
+
+a:hover {
+
+
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+div.meucontainer div {
+    width: 100%;
+    overflow: auto; 
+    float: left; 
+
+    div {        
+        display: inline -block;
+    }
+
+    
+
+
+}
