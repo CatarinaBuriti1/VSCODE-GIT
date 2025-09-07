@@ -27,8 +27,6 @@
        
        function analisar(){
             
-
-
         let palavra1 = document.getElementById("palavra1").value;
         let length = palavra1.length;
         let palavra2 = document.getElementById("palavra2").value;
@@ -53,40 +51,42 @@
         console.log(parte);
         document.getElementById("resultado").innerHTML = "A parte é: " + parte;
 
-l
-        // let conta = document.getElementById("palavra1").value;
-        // let part = conta.slice(7);
-        // console.log(part);
-
-        // let contando = "";
-        // document.getElementById("textoUsuario").value;
-        // let partindo = contando.slice(-12);
-        // console.log(partindo);
+        let letra = document.getElementById("palavra1").value;
+        let part = letra.slice(3);
+        document.getElementById("resultado").innerHTML = "A extração é: " + part;
         
-        // let maiuscula = "";
-        // document.getElementById("textoUsuario").value;
-        // let maiuscula2 = maiuscula.toUpperCase(); 
-        // console.log(maiuscula2);
-
-        // let minuscula = "";
-        // document.getElementById("palavra1").value;
-        // let minuscula1 = minuscula.toLowerCase();
-       
-        // let alterar = ""
-        // let newAlterar = alterar.replace("", "Bolsa Futuro Digital"); 
+        let contagem = document.getElementById("palavra1").value;    
+        let partindo = contagem.slice(-3);
+        document.getElementById("resultado").innerHTML = "A contagem é: " + partindo;
         
-        // let separa = ""; 
-        // const myArray = separa.split(" ");
+        
+        let maiuscula = document.getElementById("palavra1").value;
+        let converter = maiuscula.toUpperCase();
+        document.getElementById("resultado").innerHTML = "A conversão é: " + converter;
         
 
-        // let localizar = "";
-        // let index = localizar.indexOf("textoUsuario");
+        let minuscula = document.getElementById("palavra1").value;
+        let caixabaixa = minuscula.toLowerCase();
+        document.getElementById("resultado").innerHTML = "A conversão é: " + caixabaixa;
         
 
-        // let incluir = ""; 
-        // incluir.includes("textoUsuario");
-       
+        let alterar = document.getElementById("palavra1").value;
+        let mudapalavra = alterar.replace(document.getElementById("palavra1").value, "Bolsa Futuro Digital"); 
+        document.getElementById("resultado").innerHTML = "A alteração é para: " + mudapalavra;
 
+        let text = document.getElementById("palavra1").value;
+        const myArray = text.split(" ");
+        document.getElementById("resultado").innerHTML = "O resultado é: " + myArray[0];
+
+          
+        let localizar = document.getElementById("palavra1").value;
+        let index = localizar.indexOf("b");
+        document.getElementById("resultado").innerHTML = "O resultado é: " + index;
+        
+
+        let incluso = document.getElementById("palavra1").value; 
+        let verificar = incluso.includes("a");
+        document.getElementById("resultado").innerHTML = "A letra está inclusa: " + verificar;      
        
         }
 
