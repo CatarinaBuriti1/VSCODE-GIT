@@ -8,12 +8,9 @@
     </head>
 
     <body> 
-        <h1>Manipulação de Strings</h1>
+        <h1>Cadastro de pessoa</h1>
         <p>Atividade</p>
-        <p id="saída"> </p>
 
-
-    <h2>Cadastro de pessoa</h2>
 
     <label>Nome: </label>
     <input type="text" placeholder="Nome" id="nome"><br><br>
@@ -24,7 +21,7 @@
        
     <button onclick="adicionarPessoa()">Adicionar Pessoa</button>
 
-    <h3>Lista de Pessoas</h3>
+    <h2>Lista de Pessoas</h2>
     <div id="lista"></div>
         
     <script>
@@ -37,15 +34,17 @@
             this.profissao = profissao;
 
         this.apresentar = function(){
-        return "Olá, eu sou " + this.nome + ", tenho " + this.idade + "anos, minha profissão é: " + this.profissao + ".";
+        return "Olá, eu sou " + this.nome + ", tenho " + this.idade + " anos, minha profissão é: " + this.profissao + ".";
 
         };
 
         this.envelhecer = function (){
         this.idade++
-        return this.nome + ", agora tem " + this.idade + "anos!";
+        return this.nome + ", agora tem " + this.idade + " anos!";
 
        };
+
+    }
 
        //Lista para armazenar pessoas criadas
 
@@ -71,7 +70,7 @@
        function mostrarPessoas(){
         let saida = "";
         pessoas.forEach((p, i) => {
-            saida += "<p><b> Pessoa: " + (i+1) + "</b><br>";
+            saida += "<p><b> Pessoa " + (i+1) + ":</b><br>" + 
                 p.apresentar() + "<br>" + 
                 "<button onclick='envelhecerPessoa(" + i + ")'>Envelhecer</button>" + 
                 "</p><br>";   
@@ -82,37 +81,18 @@
 
        }
 
-       function envelhecerPessoa(indice){
-        alert(pessoas[indice].envelhecer());
+        function envelhecerPessoa(indice) {
+         alert(pessoas[indice].envelhecer());
 
         mostrarPessoas();
 
        }    
         
-    }
-
-
-    
-
-
-        
-
-    
-
-        
-
-
-
-        
-        
-
 
 
 
     </script>
 
     </body>
-
-
 
 </html>
