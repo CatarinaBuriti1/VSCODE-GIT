@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br"> 
+    
+    <head>
+        <meta charset = "UTF-8">
+        <title> Manipulação de strings</title> 
+
+    </head>
+
+    <body> 
+        <h1>Manipulação de Strings</h1>
+        <p>Atividade</p>
+        
+    
+            <input type="text" placeholder="Palavra 1" id="palavra1">
+            <input type="text" placeholder="Palavra 2" id="palavra2">
+            <button onclick="analisar()">Analisar palavras</button>
+            <p id="resultado"></p>
+
+          
+    <script>
+       
+       function analisar() {
+            
+        let palavra1 = document.getElementById("palavra1").value;
+        let palavra2 = document.getElementById("palavra2").value;
+        
+        
+        //Manipulações
+
+        let tamanho = palavra1.length;          
+        let uniao = palavra1.concat(" ", palavra2);         
+        let caractere = palavra1.at(2);             
+        let corte = palavra1.slice(3, 7);      
+        let parte = palavra1.slice(3);
+        let parte2 = palavra1.slice(-3);
+        let maiuscula = palavra1.toUpperCase();
+        let minuscula = palavra1.toLowerCase();       
+        let substitui = palavra1.replace("a", "@");    
+        const myArray = palavra1.split(" ");
+        let localizar = palavra1.indexOf("a");     
+        let verificar = palavra1.includes("a");
+      
+        //Exibir resultados
+
+       document.getElementById("resultado").innerHTML = 
+       "<b>Tamanho:</b> " + tamanho + " <br> " +
+       "<b>Concat:</b> " + uniao + " <br> " +
+       "<b>at(2):</b> " + caractere + " <br> " +
+       "<b>slice(3, 7):</b> " + corte + " <br> " +
+       "<b>slice(3):</b> " + parte + " <br> " +
+       "<b>slice(-3):</b> " + parte2 + " <br> " +
+       "<b>Maiúscula:</b> " + maiuscula + " <br> " +
+       "<b>Minúscula:</b> " + minuscula + " <br> " +
+       "<b>Replace:</b> " + substitui + " <br> " +
+       "<b>split:</b> " + myArray[0] + " <br> " +
+       "<b>indexOf('a'):</b> " + localizar + " <br> " + 
+       "<b>includes('a'):</b> " + verificar + " <br> ";
+
+       
+       }
+
+    
+
+    </script>
+
+    </body>
+
+
+
+</html>

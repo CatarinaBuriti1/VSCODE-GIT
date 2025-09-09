@@ -1,86 +1,117 @@
 <!DOCTYPE html>
-<html> 
+<html lang="pt-br"> 
     
     <head>
         <meta charset = "UTF-8">
-        <title> Lógica de Programação com JavaScript</title>
+        <title>Cadastro com construtor</title>
 
     </head>
 
     <body> 
         <h1>Manipulação de Strings</h1>
         <p>Atividade</p>
+        <p id="saída"> </p>
 
 
-    </body>
-    <h1>Atividade</h1>
+    <h2>Cadastro de pessoa</h2>
 
-        <input type="text" placeholder="Nome" id="nome">
-        <input type="number" placeholder="idade" id="idade">
-        <button onclick="console.log()">Adicionar Pessoa</button>
+    <label>Nome: </label>
+    <input type="text" placeholder="Nome" id="nome"><br><br>
+    <label>Idade: </label>
+    <input type="number" placeholder="idade" id="idade"><br><br>
+    <label>Profissão: </label>
+    <input type="text" placeholder="Profissão" id="profissao"><br><br>    
+       
+    <button onclick="adicionarPessoa()">Adicionar Pessoa</button>
+
+    <h3>Lista de Pessoas</h3>
+    <div id="lista"></div>
         
     <script>
 
-        let palavra1 = document.getElementById("palavra1").value;
-        let length = palavra1.length;        
-        console.log(palavra1.length);
+        //construtor de objeto
 
-        let text1 = document.getElementById("palavra1").value;
-        let text2 = document.getElementById("palavra2").value;    
-        let text3 = text1.concat(" ", text2);
-        console.log(text3);
+        function Pessoa(nome, idade, profissao){
+            this.nome = nome;
+            this.idade = idade;
+            this.profissao = profissao;
 
-        const name = document.getElementById("palavra1").value;
-        let letter = name.at(2); 
-        console.log(letter);
+        this.apresentar = function(){
+        return "Olá, eu sou " + this.nome + ", tenho " + this.idade + "anos, minha profissão é: " + this.profissao + ".";
 
-        let letras = document.getElementById("palavra2").value; 
-        document.getElementById("textoUsuario") = innnerHTML;
-        let parte = letras.slice(7, 13); 
-        console.log(parte);
+        };
 
-        let conta = document.getElementById("palavra1").value;
-        let part = conta.slice(7);
-        console.log(part);
+        this.envelhecer = function (){
+        this.idade++
+        return this.nome + ", agora tem " + this.idade + "anos!";
 
-        let contando = "";
-        document.getElementById("textoUsuario") = innnerHTML;
-        let partindo = contando.slice(-12);
-        console.log(partindo);
+       };
+
+       //Lista para armazenar pessoas criadas
+
+       const pessoas = [];
+
+       function adicionarPessoa(){
+        let nome = document.getElementById("nome").value;
+        let idade = document.getElementById("idade").value;
+        let profissao = document.getElementById("profissao").value;
+
+        if(nome.trim() === "" || idade.trim() === "" || profissao.trim() === ""){
+            alert("Preencha todos os campos!");
+            return;
+        }
+
+        //Cria nova pessoa usando o construtor
+        let novaPessoa = new Pessoa(nome, idade, profissao);
+        pessoas.push(novaPessoa)
+
+        mostrarPessoas();
+       }
+
+       function mostrarPessoas(){
+        let saida = "";
+        pessoas.forEach((p, i) => {
+            saida += "<p><b> Pessoa: " + (i+1) + "</b><br>";
+                p.apresentar() + "<br>" + 
+                "<button onclick='envelhecerPessoa(" + i + ")'>Envelhecer</button>" + 
+                "</p><br>";   
+            
+        });
+
+        document.getElementById("lista").innerHTML = saida;
+
+       }
+
+       function envelhecerPessoa(indice){
+        alert(pessoas[indice].envelhecer());
+
+        mostrarPessoas();
+
+       }    
         
-        let maiuscula = "";
-        document.getElementById("textoUsuario") = innnerHTML;
-        let maiuscula2 = maiuscula.toUpperCase(); 
-        console.log(maiuscula2);
-
-        let minuscula = "";
-        document.getElementById("textoUsuario") = innnerHTML;
-        let minuscula1 = minuscula.toLowerCase();
-        console.log(minuscula1);
-
-        let alterar = ""
-        let newAlterar = alterar.replace("", "Bolsa Futuro Digital"); 
-        console.log(newAlterar);
-
-        let separa = ""; 
-        const myArray = separa.split(" ");
-        document.getElementById("demo") = innerHTML;
-
-        let localizar = "";
-        let index = localizar.indexOf("textoUsuario");
-        console.log(index);
-
-        let incluir = ""; 
-        incluir.includes("textoUsuario");
-        console.log(incluir);
+    }
 
 
+    
+
+
+        
+
+    
+
+        
+
+
+
+        
         
 
 
 
 
     </script>
+
+    </body>
 
 
 
